@@ -1,0 +1,20 @@
+run cassandra
+
+hduser@muhammad-Vm:/$ cd /usr/local/cassandra/
+hduser@muhammad-Vm:/usr/local/cassandra$ bin/cassandra -p cassandra.pid
+
+
+open cassandra 
+
+hduser@muhammad-Vm:~$ cd /usr/local/cassandra/
+hduser@muhammad-Vm:/usr/local/cassandra$ bin/cqlsh
+
+create keyspace Tweets with replication = {'class' : 'SimpleStrategy','replication_factor':1}
+cqlsh> use tweets;
+Create table tweets(Timestamp timestamp,Text text,id int, primary key(id)) 
+
+
+run pyspark
+
+pyspark --jars mysql-connector-j-8.1.0.jar --packages com.datastax.spark:spark-cassandra-connector_2.12:3.1.0
+
